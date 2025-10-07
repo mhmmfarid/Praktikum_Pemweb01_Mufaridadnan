@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi - Gabungan Teknologi dan Bisnis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4bb543;
+            --instagram: #E1306C;
+            --gradient: linear-gradient(135deg, #4361ee, #3a0ca3);
+        }
+
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Navigation */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 12px 25px;
+            margin: 0 10px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-tab:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-top: 30px;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 5px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(67, 97, 238, 0.4);
+        }
+
+        .instagram-btn {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            box-shadow: 0 5px 15px rgba(225, 48, 108, 0.3);
+        }
+
+        .instagram-btn:hover {
+            box-shadow: 0 10px 25px rgba(225, 48, 108, 0.4);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--light);
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-link.instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+        }
+
+        .social-link.email {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-tab {
+                margin: 5px 0;
+                width: 80%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <h1>Aku Suka Koding</h1>
+            <p class="tagline">Dan aku <strong>nggak menyesal</strong> memilih <em>Sistem Informasi</em> — gabungan teknologi dan bisnis.</p>
+            <div class="highlight">
+                <p>Foto · Alasan · Contoh Materi · Kontak</p>
+            </div>
+            
+            <div class="nav-tabs">
+                <a href="#belajar" class="nav-tab">Belajar Konsisten</a>
+                <a href="#alasan" class="nav-tab">Alasan Pilih SI</a>
+                <a href="#materi" class="nav-tab">Contoh Materi</a>
+                <a href="#kontak" class="nav-tab">Kontak</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Belajar Konsisten Section -->
+    <section id="belajar">
+        <div class="container">
+            <div class="section-title">
+                <h2>Belajar Konsisten</h2>
+            </div>
+            
+            <div class="grid-2">
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Pengembangan Web Apps</h3>
+                    <p>Di SI, aku membangun web apps, memahami kebutuhan pengguna, dan membuat solusi yang bermanfaat.</p>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 85%"></div>
+                        </div>
+                        <div class="progress-labels">
+                            <span>Pemula</span>
+                            <span>Mahir</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Proyek Nyata</h3>
+                    <p>Rumus semangat: Belajar rutin x Praktek langsung = Hasil maksimal. Berikut beberapa proyek yang sudah dikerjakan:</p>
+                    <div class="skills-container">
+                        <span class="skill-tag">Website E-commerce</span>
+                        <span class="skill-tag">Aplikasi Manajemen</span>
+                        <span class="skill-tag">Dashboard Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alasan Pilih SI Section -->
+    <section id="alasan" style="background: var(--light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>kenapa SI</h2>
+            </div>
+            
+            <div class="card fade-in" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <div class="card-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Karena koding itu <strong>alat</strong> untuk memecahkan masalah</h3>
+                <p>Di Sistem Informasi, aku belajar keterampilan teknis dan komunikasi untuk menciptakan solusi yang bermanfaat:</p>
+                
+                <div class="grid-2" style="margin-top: 40px;">
+                    <div class="card">
+                        <h4>Teknis</h4>
+                        <p>HTML, CSS dasar, JavaScript dasar, dan teknologi web lainnya</p>
+                        <div class="skills-container">
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Database</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>Komunikasi</h4>
+                        <p>Menyampaikan solusi teknis dengan bahasa yang mudah dipahami oleh pengguna</p>
+                        <div class="skills-container">
+                            <span class="skill-tag">Presentasi</span>
+                            <span class="skill-tag">Dokumentasi</span>
+                            <span class="skill-tag">Kolaborasi</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; padding: 20px; background: var(--light); border-radius: 10px;">
+                    <h4>Hasilnya: karya yang terpakai dan memberi dampak</h4>
+                    <p>Dengan kombinasi keterampilan teknis dan komunikasi, lulusan SI mampu menciptakan solusi teknologi yang tidak hanya berfungsi dengan baik, tetapi juga benar-benar memecahkan masalah dan memberikan nilai tambah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contoh Materi Section -->
+    <section id="materi">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contoh Penerapan Materi Dasar</h2>
+            </div>
+            
+            <div class="card fade-in">
+                <p>Halaman ini memperagakan elemen HTML dasar: <strong>heading</strong>, <em>paragraf</em>, penekanan teks, code, small, sup, sub, gambar, tautan, dan garis horizontal.</p>
+                
+                <div style="margin: 30px 0; text-align: center;">
+                    <a href="https://www.w3schools.com" target="_blank" class="contact-btn" style="margin-right: 10px;">
+                        <i class="fas fa-external-link-alt"></i> Belajar referensi HTML: W3Schools
+                    </a>
+                    <a href="#top" class="contact-btn" style="background: var(--light); color: var(--primary);">
+                        <i class="fas fa-arrow-up"></i> Kembali ke atas
+                    </a>
+                </div>
+                
+                <div class="skills-container" style="justify-content: center;">
+                    <span class="skill-tag"><strong>Heading</strong></span>
+                    <span class="skill-tag"><em>Paragraf</em></span>
+                    <span class="skill-tag"><code>Code</code></span>
+                    <span class="skill-tag"><small>Small</small></span>
+                    <span class="skill-tag">H<sub>2</sub>O</span>
+                    <span class="skill-tag">E=MC<sup>2</sup></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak" style="background: var(--light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kontak</h2>
+            </div>
+            
+            <div class="card fade-in" style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <div class="card-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Diskusi atau Kolaborasi?</h3>
+                <p>Jangan ragu untuk menghubungi saya jika Anda ingin berdiskusi tentang teknologi, sistem informasi, atau potensi kolaborasi.</p>
+                
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> Email: mrfaridadnan@gmail.com</p>
+                    <p><i class="fab fa-instagram"></i> Instagram: @mufaridadnan</p>
+                    
+                    <a href="https://www.instagram.com/mufaridadnan?igsh=cnA2ajhxdHBmY3hh" target="_blank" class="contact-btn instagram-btn">
+                        <i class="fab fa-instagram"></i> Kirim Pesan via Instagram
+                    </a>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/mufaridadnan?igsh=cnA2ajhxdHBmY3hh" target="_blank" class="social-" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:mrfaridadnan@gmail.com" class="social-link email" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Copyright &copy;2025;
+               mahasiswa cinta coding <br>
+                Designed by farid</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Dibuat dengan ❤️ dan semangat belajar</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animasi progress bar saat di-scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBars = document.querySelectorAll('.progress');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progress = entry.target;
+                        const width = progress.style.width;
+                        progress.style.width = '0';
+                        setTimeout(() => {
+                            progress.style.width = width;
+                        }, 300);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            progressBars.forEach(bar => {
+                observer.observe(bar);
+            });
+            
+            // Animasi fade-in untuk card
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                fadeObserver.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
