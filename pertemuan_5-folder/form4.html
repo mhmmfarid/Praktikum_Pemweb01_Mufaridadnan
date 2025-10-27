@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran Relawan</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            font-size: 14px;
+        }
+        
+        .checkbox-group input {
+            margin-right: 5px;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            font-size: 14px;
+        }
+        
+        .radio-group input {
+            margin-right: 5px;
+        }
+        
+        .availability-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 5px;
+        }
+        
+        .availability-grid label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            font-size: 14px;
+        }
+        
+        .availability-grid input {
+            margin-right: 5px;
+        }
+        
+        .terms {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+        
+        .terms label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+        }
+        
+        .terms input {
+            margin-right: 10px;
+        }
+        
+        .button-link {
+            display: block;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .button-link:hover {
+            background-color: #45a049;
+        }
+        
+        .institution {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulir Pendaftaran Relawan</h1>
+        <p class="subtitle">Silakan isi formulir di bawah ini untuk menjadi relawan.</p>
+        
+        <form action="#" method="post">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">Nama Depan</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Masukkan nama depan Anda" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Nama Belakang</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Masukkan nama belakang Anda" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan alamat email Anda" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Nomor Telepon</label>
+                <input type="tel" id="phone" name="phone" placeholder="Masukkan nomor telepon Anda" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="birthdate">Tanggal Lahir</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="preferredDate">Tanggal Relawan yang Diinginkan</label>
+                <input type="date" id="preferredDate" name="preferredDate">
+            </div>
+            
+            <div class="form-group">
+                <label>Ketersediaan</label>
+                <div class="availability-grid">
+                    <label><input type="checkbox" name="availability" value="monday"> Senin</label>
+                    <label><input type="checkbox" name="availability" value="tuesday"> Selasa</label>
+                    <label><input type="checkbox" name="availability" value="wednesday"> Rabu</label>
+                    <label><input type="checkbox" name="availability" value="thursday"> Kamis</label>
+                    <label><input type="checkbox" name="availability" value="friday"> Jumat</label>
+                    <label><input type="checkbox" name="availability" value="saturday"> Sabtu</label>
+                    <label><input type="checkbox" name="availability" value="sunday"> Minggu</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Jam Kerja</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="hours" value="morning" required> Pagi</label>
+                    <label><input type="radio" name="hours" value="afternoon"> Siang</label>
+                    <label><input type="radio" name="hours" value="evening"> Sore</label>
+                    <label><input type="radio" name="hours" value="flexible"> Fleksibel</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="skills">Keterampilan dan Pengalaman</label>
+                <textarea id="skills" name="skills" placeholder="Masukkan keterampilan dan pengalaman Anda"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Minat</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="interests" value="animals"> Hewan</label>
+                    <label><input type="checkbox" name="interests" value="children"> Anak-anak</label>
+                    <label><input type="checkbox" name="interests" value="elderly"> Lansia</label>
+                    <label><input type="checkbox" name="interests" value="environment"> Lingkungan</label>
+                    <label><input type="checkbox" name="interests" value="healthcare"> Kesehatan</label>
+                    <label><input type="checkbox" name="interests" value="education"> Pendidikan</label>
+                </div>
+            </div>
+            
+            <div class="terms">
+                <label>
+                    <input type="checkbox" name="terms" required>
+                    Saya setuju dengan syarat dan ketentuan program relawan.
+                </label>
+            </div>
+            
+                        <a href="form5.html" class="button-link">Daftar Disini!</a>
+            
+            <p class="institution">STT Terpadu Nurul Fikri</p>
+        </form>
+    </div>
+</body>
+</html>

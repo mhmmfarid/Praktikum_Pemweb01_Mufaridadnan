@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Pendaftaran Acara</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            font-size: 14px;
+        }
+        
+        .radio-group input {
+            margin-right: 5px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            margin: 25px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+        
+        .terms {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+        
+        .terms label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+        }
+        
+        .terms input {
+            margin-right: 10px;
+        }
+        
+                .button-link {
+            display: block;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .button-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulir Pendaftaran Acara</h1>
+        <p class="subtitle">Silakan isi formulir di bawah ini untuk mendaftar acara.</p>
+        
+        <form action="#" method="post">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">Nama Depan</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Nama Belakang</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Alamat</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Alamat Email</label>
+                <input type="email" id="email" name="email" placeholder="nama@contoh.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Nomor Telepon</label>
+                <input type="tel" id="phone" name="phone" placeholder="+62 9999 8888 7777" required>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="country">Negara</label>
+                    <select id="country" name="country" required>
+                        <option value="" disabled selected>Pilih Negara</option>
+                        <option value="indonesia">Indonesia</option>
+                        <option value="usa">Amerika Serikat</option>
+                        <option value="uk">Inggris</option>
+                        <option value="canada">Kanada</option>
+                        <option value="australia">Australia</option>
+                        <option value="japan">Jepang</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Tanggal Lahir</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Ukuran Kaos</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="tshirt" value="small" required> Kecil</label>
+                    <label><input type="radio" name="tshirt" value="medium"> Sedang</label>
+                    <label><input type="radio" name="tshirt" value="large"> Besar</label>
+                    <label><input type="radio" name="tshirt" value="xlarge"> Sangat Besar</label>
+                </div>
+            </div>
+            
+            <h3 class="section-title">Informasi Kontak Darurat</h3>
+            
+            <div class="form-group">
+                <label for="emergencyName">Nama Kontak Darurat</label>
+                <input type="text" id="emergencyName" name="emergencyName" placeholder="Nama Lengkap" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="emergencyPhone">Nomor Telepon Kontak Darurat</label>
+                <input type="tel" id="emergencyPhone" name="emergencyPhone" placeholder="+62 812 3456 7890" required>
+            </div>
+            
+            <div class="terms">
+                <label>
+                    <input type="checkbox" name="terms" required>
+                    Saya setuju dengan syarat dan ketentuan acara ini.
+                </label>
+            </div>
+            
+            <a href="form3.html" class="button-link">Daftar Disini!</a>
+        </form>
+    </div>
+</body>
+</html>
